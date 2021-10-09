@@ -352,5 +352,15 @@ namespace clicking_game
                 Console.WriteLine("save not found");
             }
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("save/minedata.txt"))
+            {
+                int iron = int.Parse(File.ReadLines("save/minedata.txt").First());
+                count += iron * 4;
+                save_data();
+            }
+        }
     }
 }
