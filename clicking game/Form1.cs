@@ -142,7 +142,7 @@ namespace clicking_game
 
         private void button1_Click(object sender, EventArgs e)
         {
-            count += 1 * multipl;
+            count += 20 * multipl;
             this.label2.Text = "Coins: " + count.ToString();
             if (Directory.Exists("save"))
             {
