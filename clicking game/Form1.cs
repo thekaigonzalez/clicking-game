@@ -329,6 +329,7 @@ namespace clicking_game
         private void button12_Click(object sender, EventArgs e)
         {
             Credits c = new Credits();
+            
             c.Show();
         }
 
@@ -336,6 +337,20 @@ namespace clicking_game
         {
             MBuild mb = new MBuild();
             mb.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.ShowDialog();
+            string f = this.openFileDialog1.FileName;
+            try
+            {
+                load_data(f);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("save not found");
+            }
         }
     }
 }

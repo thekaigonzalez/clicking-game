@@ -52,6 +52,8 @@ namespace clicking_game
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button14 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -278,11 +280,26 @@ namespace clicking_game
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(920, 493);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(142, 29);
+            this.button14.TabIndex = 23;
+            this.button14.Text = "Load Addon File";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 584);
+            this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -338,6 +355,8 @@ namespace clicking_game
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button14;
     }
 }
 
