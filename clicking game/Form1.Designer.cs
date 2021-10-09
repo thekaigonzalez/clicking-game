@@ -51,6 +51,7 @@ namespace clicking_game
             this.button12 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -267,11 +268,22 @@ namespace clicking_game
             this.label8.Text = "AutoSave created.";
             this.label8.Visible = false;
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(920, 458);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(142, 29);
+            this.button13.TabIndex = 22;
+            this.button13.Text = "Mod Builder";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 584);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button12);
@@ -325,6 +337,7 @@ namespace clicking_game
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button13;
     }
 }
 

@@ -331,5 +331,11 @@ namespace clicking_game
             Credits c = new Credits();
             c.Show();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            MBuild mb = new MBuild();
+            mb.Show();
+        }
     }
 }
