@@ -244,6 +244,7 @@ namespace clicking_game
             this.button12.TabIndex = 19;
             this.button12.Text = "Credits";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // Form1
             // 
