@@ -95,6 +95,8 @@ namespace clicking_game
                 this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
                 this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
                 this.checkBox1.Checked = allow_unsafe_addons;
+                update_data();
+                save_data();
 
             }
         }
@@ -119,7 +121,8 @@ namespace clicking_game
                 this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
                 this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
                 this.checkBox1.Checked = allow_unsafe_addons;
-
+                update_data();
+                save_data();
             }
         }
         public void update_data()
@@ -143,7 +146,7 @@ namespace clicking_game
         private void button1_Click(object sender, EventArgs e)
         {
             // add realistic mining
-            count += new Random().Next(1, 20) * multipl;
+            count += new Random().Next(1, 5) * multipl;
             this.label2.Text = "Coins: " + count.ToString();
             if (Directory.Exists("save"))
             {
@@ -246,7 +249,7 @@ namespace clicking_game
             }
             else
             {
-                if (count >= 10000 && owns_autoclicker)
+                if (count >= 10000 && !owns_autoclicker)
                 {
                     count -= 10000;
                     owns_autoclicker = true;
