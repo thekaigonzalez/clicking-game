@@ -22,8 +22,10 @@ namespace clicking_game
             this.label2.Text = "Available: " + data[0].ToString();
 
             UserManipAPI userManip = new UserManipAPI();
+
             userManip.LoadData();
-            userManip.SwitchData(100, data[1], owns[0], data[2], owns[1]);
+
+            /*userManip.SwitchData(100, data[1], owns[0], data[2], owns[1]);*/
         }
 
         

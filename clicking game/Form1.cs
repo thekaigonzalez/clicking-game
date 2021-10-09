@@ -98,7 +98,29 @@ namespace clicking_game
 
             }
         }
+        public void replace_data(string file)
+        {
+            if (File.Exists(file))
+            {
+                string line1 = File.ReadLines(file).First(); // gets the first line from file.
+                string line2 = File.ReadLines(file).ElementAt(1); // gets the first line from file.
+                string line3 = File.ReadLines(file).ElementAt(2); // gets the first line from file.
+                string line4 = File.ReadLines(file).ElementAt(3); // gets the first line from file.
+                string line5 = File.ReadLines(file).ElementAt(4); // gets the first line from file.
 
+                count += int.Parse(line1);
+                multipl += int.Parse(line2);
+                allow_unsafe_addons = bool.Parse(line3);
+                autoclicker_speed = int.Parse(line4);
+                owns_autoclicker = bool.Parse(line5);
+                this.label2.Text = "Coins: " + count.ToString();
+                this.label3.Text = "Bonus: " + multipl.ToString();
+                this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
+                this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
+                this.checkBox1.Checked = allow_unsafe_addons;
+
+            }
+        }
         public void update_data()
         {
             this.label2.Text = "Coins: " + count.ToString();
@@ -182,6 +204,10 @@ namespace clicking_game
                 {
                     load_data("mods/" + this.richTextBox1.Text + "/_append/data.txt");
                 }
+                if (Directory.Exists("mods/" + this.richTextBox1.Text + "/_replace"))
+                {
+                    replace_data("mods/" + this.richTextBox1.Text + "/_replace/data.txt");
+                }
             }
 
         }
@@ -218,7 +244,7 @@ namespace clicking_game
             }
             else
             {
-                if (count >= 10000)
+                if (count >= 10000 && owns_autoclicker)
                 {
                     count -= 10000;
                     owns_autoclicker = true;
