@@ -142,7 +142,8 @@ namespace clicking_game
 
         private void button1_Click(object sender, EventArgs e)
         {
-            count += 20 * multipl;
+            // add realistic mining
+            count += new Random().Next(1, 20) * multipl;
             this.label2.Text = "Coins: " + count.ToString();
             if (Directory.Exists("save"))
             {
@@ -297,6 +298,12 @@ namespace clicking_game
         private void button11_Click(object sender, EventArgs e)
         {
             new ShopUX().Show();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Credits c = new Credits();
+            c.Show();
         }
     }
 }
