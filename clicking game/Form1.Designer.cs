@@ -48,6 +48,7 @@ namespace clicking_game
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -235,11 +236,21 @@ namespace clicking_game
             this.label6.TabIndex = 18;
             this.label6.Text = "v1.0.6 build 7";
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(955, 131);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(94, 29);
+            this.button12.TabIndex = 19;
+            this.button12.Text = "Credits";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 584);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -287,6 +298,7 @@ namespace clicking_game
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button12;
     }
 }
 
