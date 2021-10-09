@@ -62,3 +62,11 @@ Report it! GitHub Issue.
 
 
 
+VERSION 1.0.9 AND UNDER READ BELOW.
+
+| Error: Could not find part of path path/to/save/autosave.txt |
+
+This happens because there is no autosaving system yet. Any User Data API calls require the user to have a save file to be
+used for data manipulation. There will be a fix for this in version 1.1.0 build 10. But until then
+you can build it yourself if this is a big problem for you.
+

@@ -47,6 +47,28 @@ namespace clicking_game
                 await Task.Delay(120);
             }
         }
+        public async void autoSave()
+        {
+            while (true)
+            {
+                if (!Directory.Exists("save"))
+                {
+                    Directory.CreateDirectory("save");
+                }
+                StreamWriter f = File.CreateText("save/autosave.txt");
+                f.WriteLine(count);
+                f.WriteLine(multipl);
+                f.WriteLine(allow_unsafe_addons);
+                f.WriteLine(autoclicker_speed);
+                f.WriteLine(owns_autoclicker);
+                f.Close();
+
+                await Task.Delay(10000);
+                this.label8.Visible = true;
+                await Task.Delay(10000);
+                this.label8.Visible = false;
+            }
+        }
 
         public Form1()
         {
@@ -73,6 +95,7 @@ namespace clicking_game
                 this.checkBox1.Checked = allow_unsafe_addons;
             }
             autoCheck();
+            autoSave();
         }
 
         public void load_data(string file)
@@ -134,7 +157,7 @@ namespace clicking_game
         }
         public void save_data()
         {
-            StreamWriter f = new StreamWriter("save/autosave.txt");
+            StreamWriter f = File.CreateText("save/autosave.txt");
             f.WriteLine(count);
             f.WriteLine(multipl);
             f.WriteLine(allow_unsafe_addons);
