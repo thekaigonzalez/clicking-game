@@ -15,17 +15,17 @@ namespace clicking_game
         public ShopUX()
         {
             InitializeComponent();
-            UserDataAPI udapi = new UserDataAPI(); /// the NEW data API
-            
-            int[] data = udapi.handleSimpleVars(); // assign player data values to mutable variables.
-            bool[] owns = udapi.handleConVars();
-            this.label2.Text = "Available: " + data[0].ToString();
+            /*int[] data = udapi.handleSimpleVars(); // assign player data values to mutable variables.
+            bool[] owns = udapi.handleConVars();*/
+            Player ply = new Player();
+            this.label2.Text = "Available: " + ply.Coins();
 
-            UserManipAPI userManip = new UserManipAPI();
+            //UserManipAPI userManip = new UserManipAPI();
 
-            userManip.LoadData();
-
+            /*userManip.LoadData(); <- add for data MANIPULATION, not data handling.*/
             /*userManip.SwitchData(100, data[1], owns[0], data[2], owns[1]);*/
+
+
         }
 
         
