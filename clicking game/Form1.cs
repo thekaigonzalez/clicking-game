@@ -108,8 +108,9 @@ namespace clicking_game
                 string line4 = File.ReadLines(file).ElementAt(3); // gets the first line from file.
                 string line5 = File.ReadLines(file).ElementAt(4); // gets the first line from file.
 
-                count += int.Parse(line1);
-                multipl += int.Parse(line2);
+                // fix: fix this
+                count = int.Parse(line1);
+                multipl = int.Parse(line2);
                 allow_unsafe_addons = bool.Parse(line3);
                 autoclicker_speed = int.Parse(line4);
                 owns_autoclicker = bool.Parse(line5);
