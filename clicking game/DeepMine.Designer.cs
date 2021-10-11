@@ -33,6 +33,7 @@ namespace clicking_game
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,11 +74,23 @@ namespace clicking_game
             this.label3.TabIndex = 3;
             this.label3.Text = "Iron: -";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(996, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 29);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Secret Room";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // DeepMine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 535);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -95,5 +108,6 @@ namespace clicking_game
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }

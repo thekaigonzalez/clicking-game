@@ -19,6 +19,18 @@ namespace clicking_game
         int autoclicker_speed = 5;
         bool owns_autoclicker = true;
         int myiron = 0;
+
+        public async void SecretLoop()
+        {
+            while (true)
+            {
+                if (myiron > 600)
+                {
+                    this.button2.Visible = true;
+                }
+                await Task.Delay(2000);
+            }
+        }
         public DeepMine()
         {
 
@@ -51,8 +63,9 @@ namespace clicking_game
                 File.CreateText("save/minedata.txt").Write(myiron);
             }
             this.label3.Text = "Iron: " + myiron.ToString();
-            
+            SecretLoop();
         }
+        
         public void save_data()
         {
             StreamWriter f = new StreamWriter("save/autosave.txt");
@@ -83,6 +96,11 @@ namespace clicking_game
             this.label2.Visible = false;
             save_data();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new SecRoom().Show();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,22 +28,28 @@ namespace clicking_game
             {
                 if (File.Exists("save/autosave.txt"))
                 {
-                    string line1 = File.ReadLines("save/autosave.txt").First(); // gets the first line from file.
-                    string line2 = File.ReadLines("save/autosave.txt").ElementAt(1); // gets the first line from file.
-                    string line3 = File.ReadLines("save/autosave.txt").ElementAt(2); // gets the first line from file.
-                    string line4 = File.ReadLines("save/autosave.txt").ElementAt(3); // gets the first line from file.
-                    string line5 = File.ReadLines("save/autosave.txt").ElementAt(4); // gets the first line from file.
+                    try
+                    {
+                        string line1 = File.ReadLines("save/autosave.txt").First(); // gets the first line from file.
+                        string line2 = File.ReadLines("save/autosave.txt").ElementAt(1); // gets the first line from file.
+                        string line3 = File.ReadLines("save/autosave.txt").ElementAt(2); // gets the first line from file.
+                        string line4 = File.ReadLines("save/autosave.txt").ElementAt(3); // gets the first line from file.
+                        string line5 = File.ReadLines("save/autosave.txt").ElementAt(4); // gets the first line from file.
 
-                    count = int.Parse(line1);
-                    multipl = int.Parse(line2);
-                    allow_unsafe_addons = bool.Parse(line3);
-                    autoclicker_speed = int.Parse(line4);
-                    owns_autoclicker = bool.Parse(line5);
-                    this.label2.Text = "Coins: " + count.ToString();
-                    this.label3.Text = "Bonus: " + multipl.ToString();
-                    this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
-                    this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
-                    this.checkBox1.Checked = allow_unsafe_addons;
+                        count = int.Parse(line1);
+                        multipl = int.Parse(line2);
+                        allow_unsafe_addons = bool.Parse(line3);
+                        autoclicker_speed = int.Parse(line4);
+                        owns_autoclicker = bool.Parse(line5);
+                        this.label2.Text = "Coins: " + count.ToString();
+                        this.label3.Text = "Bonus: " + multipl.ToString();
+                        this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
+                        this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
+                        this.checkBox1.Checked = allow_unsafe_addons;
+                    } catch (Exception)
+                    {
+                        save_data();
+                    }
                 }
                 await Task.Delay(120);
             }
@@ -73,31 +80,56 @@ namespace clicking_game
         public Form1()
         {
             InitializeComponent();
-
+            this.label9.Visible = false;
             this.Focus();
             if (File.Exists("save/autosave.txt"))
             {
-                string line1 = File.ReadLines("save/autosave.txt").First(); // gets the first line from file.
-                string line2 = File.ReadLines("save/autosave.txt").ElementAt(1); // gets the first line from file.
-                string line3 = File.ReadLines("save/autosave.txt").ElementAt(2); // gets the first line from file.
-                string line4 = File.ReadLines("save/autosave.txt").ElementAt(3); // gets the first line from file.
-                string line5 = File.ReadLines("save/autosave.txt").ElementAt(4); // gets the first line from file.
+                try {
+                   
+                    string line1 = File.ReadLines("save/autosave.txt").FirstOrDefault(); // gets the first line from file.
+                    
+                    string line2 = File.ReadLines("save/autosave.txt").ElementAt(1); // gets the first line from file.
+                    string line3 = File.ReadLines("save/autosave.txt").ElementAt(2); // gets the first line from file.
+                    string line4 = File.ReadLines("save/autosave.txt").ElementAt(3); // gets the first line from file.
+                    string line5 = File.ReadLines("save/autosave.txt").ElementAt(4); // gets the first line from file.
 
-                count = int.Parse(line1);
-                multipl = int.Parse(line2);
-                allow_unsafe_addons = bool.Parse(line3);
-                autoclicker_speed = int.Parse(line4);
-                owns_autoclicker = bool.Parse(line5);
-                this.label2.Text = "Coins: " + count.ToString();
-                this.label3.Text = "Bonus: " + multipl.ToString();
-                this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
-                this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
-                this.checkBox1.Checked = allow_unsafe_addons;
+                    count = int.Parse(line1);
+                    multipl = int.Parse(line2);
+                    allow_unsafe_addons = bool.Parse(line3);
+                    autoclicker_speed = int.Parse(line4);
+                    owns_autoclicker = bool.Parse(line5);
+                    this.label2.Text = "Coins: " + count.ToString();
+                    this.label3.Text = "Bonus: " + multipl.ToString();
+                    this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
+                    this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
+                    this.checkBox1.Checked = allow_unsafe_addons;
+                } catch (Exception)
+                {
+                    count = 0;
+                    multipl = 1;
+                    allow_unsafe_addons = false;
+                    autoclicker_speed = 5;
+                    owns_autoclicker = false;
+                    this.label2.Text = "Coins: " + count.ToString();
+                    this.label3.Text = "Bonus: " + multipl.ToString();
+                    this.label5.Text = "AutoClicker Speed: " + autoclicker_speed.ToString();
+                    this.button3.Text = "Upgrade Multiplier ($" + (multipl * 2).ToString() + ")";
+                    this.checkBox1.Checked = allow_unsafe_addons;
+                    uhOh_Thing();
+                    this.notifyIcon1.ShowBalloonTip(1000, "Clicking Game Developers", "There was an issue with your clicking game autosave!\nDon't fret though! these are automatically repaired.", ToolTipIcon.Warning);
+                }
             }
+            
             autoCheck();
             autoSave();
         }
 
+        public async void uhOh_Thing()
+        {
+            this.label9.Visible = true;
+            await Task.Delay(5000);
+            this.label9.Visible = false;
+        }
         public void load_data(string file)
         {
             if (File.Exists(file))
@@ -358,9 +390,17 @@ namespace clicking_game
             if (File.Exists("save/minedata.txt"))
             {
                 int iron = int.Parse(File.ReadLines("save/minedata.txt").First());
+                StreamWriter s = new StreamWriter("save/minedata.txt");
+                s.Write("0");
+                s.Close();
                 count += iron * 4;
                 save_data();
             }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            new Bugs().Show();
         }
     }
 }

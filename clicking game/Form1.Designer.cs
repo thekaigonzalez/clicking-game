@@ -29,6 +29,7 @@ namespace clicking_game
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +56,9 @@ namespace clicking_game
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button16 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -240,7 +244,7 @@ namespace clicking_game
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 20);
             this.label6.TabIndex = 18;
-            this.label6.Text = "v1.0.9 build 8";
+            this.label6.Text = "v1.1.2 build 3";
             // 
             // button12
             // 
@@ -259,7 +263,7 @@ namespace clicking_game
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 20);
             this.label7.TabIndex = 20;
-            this.label7.Text = "v1.0.9 build 8";
+            this.label7.Text = "v1.1.2 build 3";
             // 
             // label8
             // 
@@ -305,11 +309,39 @@ namespace clicking_game
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(229, 235);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(656, 20);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Clicking Game Found an Issue in your save file! Don\'t be alarmed, as it was autom" +
+    "atically repaired.";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipTitle = "Clicking Game";
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(955, 95);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(94, 29);
+            this.button16.TabIndex = 26;
+            this.button16.Text = "Bug Report";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 584);
+            this.Controls.Add(this.button16);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
@@ -336,7 +368,7 @@ namespace clicking_game
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clicking Game";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,6 +402,9 @@ namespace clicking_game
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button16;
     }
 }
 
